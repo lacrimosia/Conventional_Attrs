@@ -1,3 +1,50 @@
 {
-	"title": "Conventional Attributes"
+	"title": "Conventional Attributes",
+	"traits":[
+		{
+			"name": "Dominance, authority, power; being on top",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "NUMBER TWO",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Phallic; penetrating, not penetrated",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Dominance, authority, power; being on top",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Hard, not soft",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Phallic; penetrating, not penetrated",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Dominance, authority, power; being on top",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Hard, not soft",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Phallic; penetrating, not penetrated",
+			"type": "masculine",
+			"selected": false
+		}
+	]
 }
