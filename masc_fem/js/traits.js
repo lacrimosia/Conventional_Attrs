@@ -3,8 +3,9 @@
 
 // Get our data
 var app = {}; // define globally
-var masculine = [];  // gather all masculine selected traits
-var feminine = [];   // gather all feminine traits
+var masculine = 0; // gather all masculine selected traits
+var feminine = 0; // gather all feminine traits
+var ctx = document.getElementById("graph");
 
 $.getJSON("data/data.json", function(data) {
     app = data;
@@ -27,8 +28,6 @@ $.getJSON("data/data.json", function(data) {
     });
 
     $('.traitsButton').click(function() {
-       // findChosen($(this).attr('id'));
-        //  selectedTrait();
         getIdSelection($(this).attr('id'));
     });
 
@@ -43,15 +42,15 @@ $.getJSON("data/data.json", function(data) {
         return item;
     }
 
-    function getIdSelection(Id) {  
-    // get the id of the currently selected button
-    // when clicked find matching item in array and change selected to true
+    function getIdSelection(Id) {
+        // get the id of the currently selected button
+        // when clicked find matching item in array and change selected to true
         // match id with app.name
-        var current = 0; 
+        var current = 0;
         _.forEach(app.traits, function(value, key) {
-          //key = index
-          // value = each object
-            if(key == Id){
+            //key = index
+            // value = each object
+            if (key == Id) {
                 current = Id;
                 console.log("current", current);
             }
@@ -60,6 +59,37 @@ $.getJSON("data/data.json", function(data) {
         app.traits[current].selected = !app.traits[current].selected;
         // toggle classes on click
         traitToggle(app.traits[current].selected, Id, app.traits[current].type);
+
+    // chart
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["Masculine", "Feminine"],
+            datasets: [{
+                label: '# of Votes',
+                data: [masculine, feminine],
+                backgroundColor: [
+                    'rgba(212, 0, 29, 1)',
+                    'rgba(170, 12, 233, 1)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            responsive: false
+        }
+    });
         return current;
     }
 
@@ -68,31 +98,49 @@ $.getJSON("data/data.json", function(data) {
         // True - element selected, False - element not selected
         // ob - the selected element       
         // if selected add class green, if button is unselcted add class red
-        if(selection == true){
-            $('#'+ob).addClass('green'); // add class green
-            checkType(trait);
-            if($('#'+ob).hasClass('red')){
-                $('#'+ob).removeClass('red'); // remove class red if already added
+        if (selection == true) {
+            $('#' + ob).addClass('green'); // add class green
+            selectedTraits(trait);
+            if ($('#' + ob).hasClass('red')) {
+                $('#' + ob).removeClass('red'); // remove class red if already added
             }
 
-        }else{
-            $('#'+ob).addClass('red');  // add class red
-            if($('#'+ob).hasClass('green')){
-                $('#'+ob).removeClass('green'); // remove class green if already added
+        } else {
+            $('#' + ob).addClass('red'); // add class red
+            unselectedTraits(trait);
+            if ($('#' + ob).hasClass('green')) {
+                $('#' + ob).removeClass('green'); // remove class green if already added
             }
         }
     }
 
-    function checkType(trait){
+    function selectedTraits(trait) {
         // check type of trait selected and push into proper array
-        if(trait === 'masculine'){
-            masculine.push(trait);
-        }else if(trait === 'feminine'){
-            feminine.push(trait);
-        }else{
+        if (trait === 'masculine') {
+            masculine += 1;
+            console.log('masculine', masculine);
+            return masculine;
+        } else if (trait === 'feminine') {
+            feminine += 1;
+        } else {
             console.log("no trait type");
         }
-       // console.log('masculine', masculine);
+
     }
+
+    function unselectedTraits(trait) {
+        // check type of trait selected and push into proper array
+        if (trait === 'masculine') {
+            masculine -= 1;
+            console.log('masculine', masculine);
+            return masculine;
+        } else if (trait === 'feminine') {
+            feminine -= 1;
+        } else {
+            console.log("no trait type");
+        }
+
+    }
+
 
 });
