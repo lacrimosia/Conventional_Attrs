@@ -65,6 +65,213 @@
 			"name": "Polygamous",
 			"type": "masculine",
 			"selected": false
+		},
+		{
+			"name": "Dominant",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Independent",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Intelligent and competent",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Assertive",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Analytical",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Strong",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Brave",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Ambitious",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Active",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Competitive",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Insensitive",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Sexually aggressive",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Attractive because of achievement",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Dependent",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Emotional",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Passive",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Sensitive",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Quiet",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Graceful",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Innocent",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Weak",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Flirtatious",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Nurturing",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Self-critical",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Soft",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Sexually submissive",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Accepting",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Submissive",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Dependent",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Unintelligent and Incapable",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Emotional",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Receptive",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Intuitive",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Weak",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Timid",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Content",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Passive",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Cooperative",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Sensitive",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Sex object",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Attractive because of physical appearance",
+			"type": "feminine",
+			"selected": false
 		}
+
+
 	]
 }
