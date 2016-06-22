@@ -7,7 +7,12 @@ var masculine = 0; // gather all masculine selected traits
 var feminine = 0; // gather all feminine traits
 var ctx = document.getElementById("graph");
 var selected = false;
-
+// keyboard shortcuts for accessibility
+var current = 0; // set the current to first slide
+var enabled = false; // hide intro screen
+var disableKey = true; // disable keyboard until intro screen is hidden
+var showHelp = false; // show help when clicked or key is pressed
+var openHelp = false; // whether help menu is open or closed
 
 $.getJSON("data/data.json", function(data) {
     app = data;
@@ -16,38 +21,39 @@ $.getJSON("data/data.json", function(data) {
 
     // reload app 
     $('.reload').click(function() {
-    location.reload();
+        location.reload();
     });
 
     // help menu will show
     $('.help').click(function() {
-    showHelpMenu();
-    $('.help_Button').html("Close");
+        showHelpMenu();
+        $('.help_Button').html("Close");
     });
 
     // close help menu
     $('.help_Button').click(function() {
-    closeHelpMenu();
+        closeHelpMenu();
     });
 
     //show results
     $('.finish').click(function() {
-    finish();
+        finish();
     });
 
     $('.traitsButton').click(function() {
-    getIdSelection($(this).attr('id'));
+        getIdSelection($(this).attr('id'));
     });
 
     function init() {
-    loadButtons();
-    $('.final').hide();
+        loadButtons();
+        $('.final').hide();
     }
 
     function loadButtons() {
-    for (var item = 0; item < app.shuffleArray.length; item++) {
-          //  console.log('load Buttons', app.shuffleArray[item]);
-            $('.traits').append("<button class='traitsButton "+app.shuffleArray[item].type+"' id=" + item + ">" + app.shuffleArray[item].name + "</button>");
+        for (var item = 0; item < app.shuffleArray.length; item++) {
+            //  console.log('load Buttons', app.shuffleArray[item]);
+            $('.traits').append("<button class='traitsButton " + app.shuffleArray[item].type + "' id=" + item + " tabindex='"+(item + 1)+"'>" + app.shuffleArray[item].name + "</button>");
+
         }
     }
 
@@ -80,7 +86,7 @@ $.getJSON("data/data.json", function(data) {
         } else {
             selected = true;
         }
-        
+
         return current;
     }
 
@@ -135,39 +141,48 @@ $.getJSON("data/data.json", function(data) {
         if (selected == true) {
             $('.final').show();
             $('.traits').hide();
+
             // chart
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ["Masculine", "Feminine"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [masculine, feminine],
-                    backgroundColor: [
-                        'rgba(27, 31, 78, 1)',
-                        'rgba(170, 12, 233, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255,255,255,1)',
-                        'rgba(255, 255, 255, 1)'
-                    ],
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: false,
-                gridLines: {
-                    display: true
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ["Masculine", "Feminine"],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [masculine, feminine],
+                        backgroundColor: [
+                            'rgba(27, 31, 78, 1)',
+                            'rgba(237, 89, 1, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255,255,255,1)',
+                            'rgba(255, 255, 255, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
                 },
-                title: {
-                    display: true,
-                    text: 'Conventional Attributes Results'
-                },
-                hover: {
-                    mode: 'label'
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    responsive: false,
+                    showTooltip: true,
+                    gridLines: {
+                        display: true
+                    },
+                    title: {
+                        display: true,
+                        text: 'Conventional Attributes Results'
+                    },
+                    hover: {
+                        mode: 'label'
+                    }
                 }
-            }
-        });
+            });
 
         } else {
             alert("Please select a trait");
@@ -175,5 +190,44 @@ $.getJSON("data/data.json", function(data) {
         }
     }
 
+
+$(document).bind('keyup', function(e) {
+    key = e.keyCode;
+
+    if (key == 82) {
+        location.reload(); //reload app - r key
+    } else if (key == 83) {
+        intro(); //Start App - s key
+    } else if (key == 72 && disableKey == false) {
+        // H key - Help Menu
+        // toggles sound and changes icon based on whether sound is on or off
+        openHelp = !openHelp;
+        if (openHelp == true) {
+            showHelpMenu();
+            $('.help_Button').html("Close <i class='fa fa-times'></i>");
+        } else if(key == 32 && disableKey == false){
+            getIdSelection($('.traitsButton').attr('tabindex'));
+        }
+        else {
+            closeHelpMenu();
+        }
+    }
+});
+
+
+
+function showHelpMenu() {
+    $('.help_Menu').show();
+}
+
+function closeHelpMenu() {
+    $('.help_Menu').hide();
+}
+
+function intro() {
+    $('.help_Menu').hide();;
+    enabled = true;
+    disableKey = false;
+}
 
 });
