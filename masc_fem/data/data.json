@@ -7,21 +7,6 @@
 			"selected": false
 		},
 		{
-			"name": "NUMBER TWO",
-			"type": "feminine",
-			"selected": false
-		},
-		{
-			"name": "Phallic; penetrating, not penetrated",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Dominance, authority, power; being on top",
-			"type": "masculine",
-			"selected": false
-		},
-		{
 			"name": "Hard, not soft",
 			"type": "masculine",
 			"selected": false
@@ -32,17 +17,52 @@
 			"selected": false
 		},
 		{
-			"name": "Dominance, authority, power; being on top",
+			"name": "Aggressiveness",
 			"type": "masculine",
 			"selected": false
 		},
 		{
-			"name": "Hard, not soft",
+			"name": "Explosive, uncontrollable (\"boys will be boys\")",
 			"type": "masculine",
 			"selected": false
 		},
 		{
-			"name": "Phallic; penetrating, not penetrated",
+			"name": "Irresistible to women",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Being Active",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Enjoyment of physical activity (sports, etc.)",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Enjoyment of the chase, etc.",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Go-getting",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Enjoyment of violence",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Lust-driven; \"brains in crotch\"",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Polygamous",
 			"type": "masculine",
 			"selected": false
 		}

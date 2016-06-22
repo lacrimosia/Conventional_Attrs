@@ -10,161 +10,165 @@ var selected = false;
 
 
 $.getJSON("data/data.json", function(data) {
-    app = data;
-    init(); // defaults
+            app = data;
+            app.shuffleArray = _.shuffle(app.traits); // shuffle our traits each time
+            init(); // defaults
 
-    // reload app 
-    $('.reload').click(function() {
-        location.reload();
-    });
+            // reload app 
+            $('.reload').click(function() {
+                location.reload();
+            });
 
-    // help menu will show
-    $('.help').click(function() {
-        showHelpMenu();
-        $('.help_Button').html("Close");
-    });
+            // help menu will show
+            $('.help').click(function() {
+                showHelpMenu();
+                $('.help_Button').html("Close");
+            });
 
-    // close help menu
-    $('.help_Button').click(function() {
-        closeHelpMenu();
-    });
+            // close help menu
+            $('.help_Button').click(function() {
+                closeHelpMenu();
+            });
 
-    //show results
-    $('.finish').click(function() {
-        finish();
-    });
+            //show results
+            $('.finish').click(function() {
+                finish();
+            });
 
-    $('.traitsButton').click(function() {
-        getIdSelection($(this).attr('id'));
-    });
+            $('.traitsButton').click(function() {
+                getIdSelection($(this).attr('id'));
+            });
 
-    function init() {
-        showAllTraits();
-      //  $('#graph').hide();
-    }
-
-    function showAllTraits() {
-        for (var item = 0; item < app.traits.length; item++) {
-            $('.traits').append("<button class='traitsButton' id=" + item + ">" + app.traits[item].name + "</button>");
-        }
-        return item;
-    }
-
-    function getIdSelection(Id) {
-        // get the id of the currently selected button
-        // when clicked find matching item in array and change selected to true
-        // match id with app.name
-        var current = 0;
-        _.forEach(app.traits, function(value, key) {
-            //key = index
-            // value = each object
-            if (key == Id) {
-                current = Id;
-                console.log("current", current);
+            function init() {
+                loadButtons();
+                $('.final').hide();
             }
-        });
 
-        
-        // toggle selection
-        app.traits[current].selected = !app.traits[current].selected;
-        // toggle classes on click
-        traitToggle(app.traits[current].selected, Id, app.traits[current].type);
-
-        // checks if any traits are selected or not
-        if(masculine == 0 && feminine == 0){
-            selected = false;
-        }else{
-            selected = true;
-        }
-        // chart
-        var myChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ["Masculine", "Feminine"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [masculine, feminine],
-                    backgroundColor: [
-                        'rgba(212, 0, 29, 1)',
-                        'rgba(170, 12, 233, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: false,
-                gridLines: {
-                    display: false
-                },
-                title: {
-                    display: true,
-                    text: 'Conventional Attributes Results'
+            function loadButtons() {
+                for (var item = 0; item < app.shuffleArray.length; item++) {
+                        console.log('load Buttons', app.shuffleArray[item]);
+                        $('.traits').append("<button class='traitsButton "+app.shuffleArray[item].type+"' id=" + item + ">" + app.shuffleArray[item].name + "</button>");
+                    }
                 }
-            }
-        });
-        return current;
-    }
 
-    function traitToggle(selection, ob, trait) {
-        // selection - the current selected key
-        // True - element selected, False - element not selected
-        // ob - the selected element       
-        // if selected add class green, if button is unselcted add class red
-        if (selection == true) {
-            $('#' + ob).addClass('green'); // add class green
-            selectedTraits(trait);
-            if ($('#' + ob).hasClass('red')) {
-                $('#' + ob).removeClass('red'); // remove class red if already added
-            }
-
-        } else {
-            $('#' + ob).addClass('red'); // add class red
-            unselectedTraits(trait);
-            if ($('#' + ob).hasClass('green')) {
-                $('#' + ob).removeClass('green'); // remove class green if already added
-            }
-        }
-    }
-
-    function selectedTraits(trait) {
-        // check type of trait selected and push into proper array
-        if (trait === 'masculine') {
-            masculine += 1;
-            console.log('masculine', masculine);
-            return masculine;
-        } else if (trait === 'feminine') {
-            feminine += 1;
-        } else {
-            console.log("no trait type");
-        }
-    }
-
-    function unselectedTraits(trait) {
-        // check type of trait selected and push into proper array
-        if (trait === 'masculine') {
-            masculine -= 1;
-            console.log('masculine', masculine);
-            return masculine;
-        } else if (trait === 'feminine') {
-            feminine -= 1;
-        } else {
-            console.log("no trait type");
-        }
-    }
-
-    function finish() {
-        if (selected == true) {
-            $('.final').show();
-            $('.traits').hide();
-        } else {
-            alert("Please select a trait");
-
-        }
-    }
+                function getIdSelection(Id) {
+                    // get the id of the currently selected button
+                    // when clicked find matching item in array and change selected to true
+                    // match id with app.name
+                    var current = 0;
+                    var shuffleArray = app.shuffleArray;
+                    _.forEach(shuffleArray, function(value, key) {
+                        //key = index
+                        // value = each object
+                        if (key == Id) {
+                            current = Id;
+                            // console.log("current key", current);
+                            // console.log("selected State current key", shuffleArray[current].selected);
+                        }
+                    });
 
 
-});
+                    // toggle selection
+                    shuffleArray[current].selected = !shuffleArray[current].selected;
+                    console.log("when clicked", shuffleArray[current].name + ': ' + shuffleArray[current].selected);
+                    // toggle classes on click
+                    traitToggle(shuffleArray[current].selected, Id, shuffleArray[current].type);
+
+                    // checks if any traits are selected or not
+                    if (masculine == 0 && feminine == 0) {
+                        selected = false;
+                    } else {
+                        selected = true;
+                    }
+                    // chart
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ["Masculine", "Feminine"],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [masculine, feminine],
+                                backgroundColor: [
+                                    'rgba(212, 0, 29, 1)',
+                                    'rgba(170, 12, 233, 1)'
+                                ],
+                                borderColor: [
+                                    'rgba(255,99,132,1)',
+                                    'rgba(54, 162, 235, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            gridLines: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'Conventional Attributes Results'
+                            }
+                        }
+                    });
+                    return current;
+                }
+
+                function traitToggle(selection, ob, trait) {
+                    // selection - the current selected key
+                    // True - element selected, False - element not selected
+                    // ob - the selected element       
+                    // if selected add class green, if button is unselcted add class red
+                    if (selection == true) {
+                        $('#' + ob).addClass('green'); // add class green
+                        selectedTraits(trait);
+                        if ($('#' + ob).hasClass('red')) {
+                            $('#' + ob).removeClass('red'); // remove class red if already added
+                        }
+
+                    } else {
+                        $('#' + ob).addClass('red'); // add class red
+                        unselectedTraits(trait);
+                        if ($('#' + ob).hasClass('green')) {
+                            $('#' + ob).removeClass('green'); // remove class green if already added
+                        }
+                    }
+                }
+
+                function selectedTraits(trait) {
+                    // check type of trait selected and push into proper array
+                    if (trait === 'masculine') {
+                        masculine += 1;
+                        console.log('masculine', masculine);
+                        return masculine;
+                    } else if (trait === 'feminine') {
+                        feminine += 1;
+                    } else {
+                        console.log("no trait type");
+                    }
+                }
+
+                function unselectedTraits(trait) {
+                    // check type of trait selected and push into proper array
+                    if (trait === 'masculine' && masculine > 0) {
+                        masculine -= 1;
+                        console.log('masculine', masculine);
+                        return masculine;
+                    } else if (trait === 'feminine') {
+                        feminine -= 1;
+                    } else {
+                        console.log("no trait type");
+                    }
+                }
+
+                function finish() {
+                    if (selected == true) {
+                        $('.final').show();
+                        $('.traits').hide();
+                    } else {
+                        alert("Please select a trait");
+
+                    }
+                }
+
+
+            });
