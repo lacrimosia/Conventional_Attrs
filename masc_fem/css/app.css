@@ -230,10 +230,12 @@ body {
     /* IE6-9 */
 }
 
+/* non-selected class */
 .red{
-	background: red;
+	background: #B7B7B7;
 }
 
+/* selected class */
 .green{
 	background: green;
 }
