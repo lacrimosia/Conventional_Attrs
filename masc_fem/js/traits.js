@@ -6,6 +6,8 @@ var app = {}; // define globally
 var masculine = 0; // gather all masculine selected traits
 var feminine = 0; // gather all feminine traits
 var ctx = document.getElementById("graph");
+var selected = false;
+
 
 $.getJSON("data/data.json", function(data) {
     app = data;
@@ -27,12 +29,18 @@ $.getJSON("data/data.json", function(data) {
         closeHelpMenu();
     });
 
+    //show results
+    $('.finish').click(function() {
+        finish();
+    });
+
     $('.traitsButton').click(function() {
         getIdSelection($(this).attr('id'));
     });
 
     function init() {
         showAllTraits();
+      //  $('#graph').hide();
     }
 
     function showAllTraits() {
@@ -55,41 +63,49 @@ $.getJSON("data/data.json", function(data) {
                 console.log("current", current);
             }
         });
+
+        
         // toggle selection
         app.traits[current].selected = !app.traits[current].selected;
         // toggle classes on click
         traitToggle(app.traits[current].selected, Id, app.traits[current].type);
 
-    // chart
-    var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["Masculine", "Feminine"],
-            datasets: [{
-                label: '# of Votes',
-                data: [masculine, feminine],
-                backgroundColor: [
-                    'rgba(212, 0, 29, 1)',
-                    'rgba(170, 12, 233, 1)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
+        // checks if any traits are selected or not
+        if(masculine == 0 && feminine == 0){
+            selected = false;
+        }else{
+            selected = true;
+        }
+        // chart
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Masculine", "Feminine"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [masculine, feminine],
+                    backgroundColor: [
+                        'rgba(212, 0, 29, 1)',
+                        'rgba(170, 12, 233, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
                 }]
             },
-            responsive: false
-        }
-    });
+            options: {
+                responsive: false,
+                gridLines: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: 'Conventional Attributes Results'
+                }
+            }
+        });
         return current;
     }
 
@@ -125,7 +141,6 @@ $.getJSON("data/data.json", function(data) {
         } else {
             console.log("no trait type");
         }
-
     }
 
     function unselectedTraits(trait) {
@@ -139,7 +154,16 @@ $.getJSON("data/data.json", function(data) {
         } else {
             console.log("no trait type");
         }
+    }
 
+    function finish() {
+        if (selected == true) {
+            $('.final').show();
+            $('.traits').hide();
+        } else {
+            alert("Please select a trait");
+
+        }
     }
 
 
