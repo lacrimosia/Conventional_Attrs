@@ -230,19 +230,12 @@ body {
     /* IE6-9 */
 }
 
-.traitsButton:hover {
-    /*background: #ED5901; */
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f25a02+0,e25402+100 */
-    background: rgb(242, 90, 2);
-    /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(242, 90, 2, 1) 0%, rgba(226, 84, 2, 1) 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(242, 90, 2, 1) 0%, rgba(226, 84, 2, 1) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(242, 90, 2, 1) 0%, rgba(226, 84, 2, 1) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f25a02', endColorstr='#e25402', GradientType=0);
-    /* IE6-9 */
+.red{
+	background: red;
+}
+
+.green{
+	background: green;
 }
 
 .traits{

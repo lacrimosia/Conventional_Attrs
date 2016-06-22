@@ -26,8 +26,9 @@ $.getJSON("data/data.json", function(data) {
     });
 
     $('.traitsButton').click(function() {
-        findChosen($(this).attr('id'));
+       // findChosen($(this).attr('id'));
         //  selectedTrait();
+        getIdSelection($(this).attr('id'));
     });
 
     function init() {
@@ -41,23 +42,42 @@ $.getJSON("data/data.json", function(data) {
         return item;
     }
 
-    function findChosen(id) {
-        // when clicked find matching item in array and change selected to true
+    function getIdSelection(Id) {  
+    // get the id of the currently selected button
+    // when clicked find matching item in array and change selected to true
         // match id with app.name
-        // make selected toggle value
-        // once chosen is set to true push into array
-        // if chose is unselected pop from array
+        var current = 0; 
         _.forEach(app.traits, function(value, key) {
-            if(id == value){
-                console.log(value);
+          //key = index
+          // value = each object
+            if(key == Id){
+                current = Id;
+                console.log("current", current);
             }
-            return value;
         });
+        // toggle selection
+        app.traits[current].selected = !app.traits[current].selected;
+        // toggle classes on click
+        traitToggle(app.traits[current].selected, Id);
+        return current;
     }
 
-    function selectedTrait() {
-        var selectedButton = _.filter(app.traits, { 'selected': true });
-        console.log('selected', selectedButton);
+    function traitToggle(selection, ob) {
+        // selection - the current selected key
+        // ob - the selected element       
+        // if selected add class green, if button is unselcted add class red
+        if(selection == true){
+            $('#'+ob).addClass('green');
+            console.log($('#'+ob));
+            if($('#'+ob).hasClass('red')){
+                $('#'+ob).removeClass('red');
+            }
+        }else{
+            $('#'+ob).addClass('red');
+            if($('#'+ob).hasClass('green')){
+                $('#'+ob).removeClass('green');
+            }
+        }
     }
 
 });
