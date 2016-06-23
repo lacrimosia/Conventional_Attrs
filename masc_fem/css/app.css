@@ -205,16 +205,6 @@ body {
     float: right;
 }
 
-
-/* checkbox */
-/*Checkboxes styles*/
-
-/* text for checkbox */
-
-label {
-    font-size: 0.75em;
-}
-
 .sele{
   background: #484848;
   float: left;
@@ -223,18 +213,23 @@ label {
   padding: 5px 5px 10px 5px;
 }
 
-input{
-	float: left; /* prevents text from wrapping under checkbox */
+span{
+	font-size: 0.75em;
 }
-
 
 
 /* non-selected class */
-
 .red,
 .traitsButton {
-	
+	background: #DD2013;
+	color: #ffffff;
+	border: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 5px;
 }
+
+
 
 
 /* selected class */

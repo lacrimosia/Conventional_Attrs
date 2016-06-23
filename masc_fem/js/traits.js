@@ -51,7 +51,7 @@ $.getJSON("data/data.json", function(data) {
 
     function loadButtons() {
         for (var item = 0; item < app.shuffleArray.length; item++) {
-            $('.traits').append("<div class='sele'><input type='checkbox' name="+item+" value="+app.shuffleArray[item].name+" class='traitsButton "+app.shuffleArray[item].type+"' id='" + item + "' tabindex='"+(item + 1)+"' /><label for='"+item+"'>"+app.shuffleArray[item].name +"<span class='ui'></span></label></div>");
+            $('.traits').append("<div class='sele'><button class='traitsButton "+app.shuffleArray[item].type+"' id='" + item + "' tabindex='"+(item + 1)+"'><i class='fa fa-plus'></i></button><span for='"+item+"'>"+app.shuffleArray[item].name +"</span></div>");
         }
     }
 
@@ -95,6 +95,7 @@ $.getJSON("data/data.json", function(data) {
         // if selected add class green, if button is unselcted add class red
         if (selection == true) {
             $('#' + ob).addClass('green'); // add class green
+            $('#' + ob).html('<i class="fa fa-minus"></i>');
             selectedTraits(trait);
             if ($('#' + ob).hasClass('red')) {
                 $('#' + ob).removeClass('red'); // remove class red if already added
@@ -102,6 +103,7 @@ $.getJSON("data/data.json", function(data) {
 
         } else {
             $('#' + ob).addClass('red'); // add class red
+            $('#' + ob).html('<i class="fa fa-plus"></i>');
             unselectedTraits(trait);
             if ($('#' + ob).hasClass('green')) {
                 $('#' + ob).removeClass('green'); // remove class green if already added
@@ -204,6 +206,7 @@ $(document).bind('keyup', function(e) {
             showHelpMenu();
             $('.help_Button').html("Close <i class='fa fa-times'></i>");
         } else if(key == 32 && disableKey == false){
+            e.preventDefault();
             // space to select button
             getIdSelection($('sele.traitsButton').attr('tabindex'));
         }
