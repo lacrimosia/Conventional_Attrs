@@ -51,7 +51,7 @@ $.getJSON("data/data.json", function(data) {
 
     function loadButtons() {
         for (var item = 0; item < app.shuffleArray.length; item++) {
-            $('.traits').append("<div class='sele'><button class='traitsButton " + app.shuffleArray[item].type + "' id='" + item + "' tabindex='" + (item + 1) + "'><i class='fa fa-plus'></i></button><span for='" + item + "'>" + app.shuffleArray[item].name + "</span></div>");
+            $('.traits').append("<div class='sele "+ (item+1) +"'><button class='traitsButton " + app.shuffleArray[item].type + "' id='" + item + "' tabindex='" + (item + 1) + "'><i class='fa fa-plus'></i></button><span for='" + item + "'>" + app.shuffleArray[item].name + "</span></div>");
         }
     }
 
@@ -203,12 +203,14 @@ $.getJSON("data/data.json", function(data) {
             console.log(tabIndex);
 
             if(tabIndex == undefined){
-                console.log('total', totalSize);
+             //   console.log('total', totalSize);
               //  tabIndex = $('.traitsButton:focus').attr('tabindex', 1);
                 $('#0').focus();
-                console.log('end', tabIndex);
+              //  console.log('end', tabIndex);
             }else{
                 tabIndex = $('.traitsButton:focus').attr('tabindex');
+                $('.sele '+parseInt(tabIndex)).css('background-color','yellow !important');
+                console.log('pink area', tabIndex);
                 totalSize = $('.traitsButton').size();
             }
 

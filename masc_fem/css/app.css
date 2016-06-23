@@ -218,6 +218,7 @@ span{
 
 .traitsButton:focus {
     border: 2px solid #EF9719;
+    outline: none;
 }
 
 /* non-selected class */
@@ -231,12 +232,14 @@ span{
 	margin-right: 5px;
 	padding: 7px;
 	transition: background linear .2s;
+	outline: none;
 }
 
 /* selected class */
 
 .green {
     background: green;
+    outline: none;
 }
 
 /* checkboxs main div */
