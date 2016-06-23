@@ -205,136 +205,50 @@ body {
     float: right;
 }
 
-.traitsButton {
-    opacity: 1 !important;
-    position: relative;
-    width: 188px;
-    height: 50px;
-    float: left;
-    /* background: #D4001D; */
-    border: none;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 1em;
-    margin: 6px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ea001f+0,bf0019+100 */
-    background: rgb(234, 0, 31);
-    /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(234, 0, 31, 1) 0%, rgba(191, 0, 25, 1) 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(234, 0, 31, 1) 0%, rgba(191, 0, 25, 1) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(234, 0, 31, 1) 0%, rgba(191, 0, 25, 1) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ea001f', endColorstr='#bf0019', GradientType=0);
-    /* IE6-9 */
+
+/* checkbox */
+/*Checkboxes styles*/
+
+/* text for checkbox */
+
+label {
+    font-size: 0.8em;
+}
+
+.sele{
+  background: #484848;
+  float: left;
+  width: 158px;
+  height: 40px;
+  border: 1px solid #fff;
+}
+
+input{
+	float: left; /* prevents text from wrapping under checkbox */
 }
 
 /* non-selected class */
-.red{
-	background: #B7B7B7;
+
+.red,
+.traitsButton {
+
 }
+
 
 /* selected class */
-.green{
-	background: green;
+
+.green {
+    background: green;
 }
 
-.traits{
-	width: 800px;
-	height: 600px;
-	position: relative;
-	top: 0px;
-	left: 0px;
+/* checkboxs main div */
+.traits {
+    width: 800px;
+    height: 600px;
+    position: relative;
+    top: 0px;
+    left: 0px;
 }
-
-/* button for marker text */
-
-
-/* marker area */
-
-.tl-timemarker-content-container {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1b1f4e+21,393f7d+38,aa0ce9+55,d4001d+71,ed5901+85,ef9719+98;wmst */
-    background: rgb(27, 31, 78);
-    /* Old browsers */
-    background: -moz-linear-gradient(45deg, rgba(27, 31, 78, 1) 21%, rgba(57, 63, 125, 1) 38%, rgba(170, 12, 233, 1) 55%, rgba(212, 0, 29, 1) 71%, rgba(237, 89, 1, 1) 85%, rgba(239, 151, 25, 1) 98%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(45deg, rgba(27, 31, 78, 1) 21%, rgba(57, 63, 125, 1) 38%, rgba(170, 12, 233, 1) 55%, rgba(212, 0, 29, 1) 71%, rgba(237, 89, 1, 1) 85%, rgba(239, 151, 25, 1) 98%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(45deg, rgba(27, 31, 78, 1) 21%, rgba(57, 63, 125, 1) 38%, rgba(170, 12, 233, 1) 55%, rgba(212, 0, 29, 1) 71%, rgba(237, 89, 1, 1) 85%, rgba(239, 151, 25, 1) 98%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1b1f4e', endColorstr='#ef9719', GradientType=1);
-    /* IE6-9 fallback on horizontal gradient */
-    color: #ffffff !important;
-    font-size: 24px !important;
-}
-
-
-/* dates on timeline */
-
-.tl-timeaxis-tick-text {
-    color: #ffffff !important;
-    font-size: 14px !important;
-}
-
-.tl-timeaxis-tick:before {
-    background: #ffffff !important;
-}
-
-.tl-timeaxis {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#393f7d+1,aa0ce9+30,d4001d+65,ef9719+100 */
-    background: rgb(57, 63, 125);
-    /* Old browsers */
-    background: -moz-linear-gradient(left, rgba(57, 63, 125, 1) 1%, rgba(170, 12, 233, 1) 30%, rgba(212, 0, 29, 1) 65%, rgba(239, 151, 25, 1) 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(57, 63, 125, 1) 1%, rgba(170, 12, 233, 1) 30%, rgba(212, 0, 29, 1) 65%, rgba(239, 151, 25, 1) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(57, 63, 125, 1) 1%, rgba(170, 12, 233, 1) 30%, rgba(212, 0, 29, 1) 65%, rgba(239, 151, 25, 1) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#393f7d', endColorstr='#ef9719', GradientType=1);
-    /* IE6-9 */
-}
-
-
-/* flag text */
-
-.tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline {
-    color: #ffffff !important;
-}
-
-
-/* color of selected markers and timeline background bar */
-
-.tl-timemarker-content-container.tl-timemarker-active {
-    color: #ffffff !important;
-    font-size: 16px !important;
-}
-
-.tl-headline.tl-headline-fadeout {
-    background: none !important;
-}
-
-.tl-headline.tl-headline-fadeout:after {
-    background: none !important;
-}
-
-
-/* date heading */
-
-.tl-text .tl-headline-date,
-.tl-text h3.tl-headline-date,
-.tl-timemarker-timespan {
-    font-size: 24px !important;
-    color: #ffffff !important;
-}
-
-
-/* nav bar timeline */
-
-.tl-timenav {
-    background: #222222 !important;
-}
-
 
 /* buttons */
 

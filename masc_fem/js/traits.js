@@ -51,9 +51,7 @@ $.getJSON("data/data.json", function(data) {
 
     function loadButtons() {
         for (var item = 0; item < app.shuffleArray.length; item++) {
-            //  console.log('load Buttons', app.shuffleArray[item]);
-            $('.traits').append("<button class='traitsButton " + app.shuffleArray[item].type + "' id=" + item + " tabindex='"+(item + 1)+"'>" + app.shuffleArray[item].name + "</button>");
-
+            $('.traits').append("<div class='sele'><input type='checkbox' name="+item+" value="+app.shuffleArray[item].name+" class='traitsButton "+app.shuffleArray[item].type+"' id='" + item + "' tabindex='"+(item + 1)+"' /><label for='"+item+"'>"+app.shuffleArray[item].name +"<span class='ui'></span></label></div>");
         }
     }
 
@@ -206,7 +204,8 @@ $(document).bind('keyup', function(e) {
             showHelpMenu();
             $('.help_Button').html("Close <i class='fa fa-times'></i>");
         } else if(key == 32 && disableKey == false){
-            getIdSelection($('.traitsButton').attr('tabindex'));
+            // space to select button
+            getIdSelection($('sele.traitsButton').attr('tabindex'));
         }
         else {
             closeHelpMenu();
