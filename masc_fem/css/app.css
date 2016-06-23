@@ -12,7 +12,7 @@ body {
     top: 0px;
     left: 0px;
     width: 800px;
-    height: 600px;
+    height: 701px;
     /* background: rgba(0, 0, 0, 0.6); */
     z-index: 100000;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1b1f4e+21,393f7d+38,aa0ce9+55,d4001d+71,ed5901+85,ef9719+98&0.46+0,0.5+100;wmst2 */
@@ -206,31 +206,32 @@ body {
 }
 
 .sele{
-  background: #484848;
   float: left;
   width: 188px;
   height: 25px;
-  padding: 5px 5px 10px 5px;
+  padding: 5px 5px 11px 5px;
 }
 
 span{
 	font-size: 0.75em;
 }
 
+.traitsButton:focus {
+    border: 2px solid #EF9719;
+}
 
 /* non-selected class */
 .red,
 .traitsButton {
-	background: #DD2013;
+	background: #ED5901;
 	color: #ffffff;
 	border: none;
 	cursor: pointer;
 	float: left;
 	margin-right: 5px;
+	padding: 7px;
+	transition: background linear .2s;
 }
-
-
-
 
 /* selected class */
 
@@ -242,6 +243,7 @@ span{
 .traits {
     width: 800px;
     height: 600px;
+    background: #484848;
     position: relative;
     top: 0px;
     left: 0px;

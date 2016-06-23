@@ -51,7 +51,7 @@ $.getJSON("data/data.json", function(data) {
 
     function loadButtons() {
         for (var item = 0; item < app.shuffleArray.length; item++) {
-            $('.traits').append("<div class='sele'><button class='traitsButton "+app.shuffleArray[item].type+"' id='" + item + "' tabindex='"+(item + 1)+"'><i class='fa fa-plus'></i></button><span for='"+item+"'>"+app.shuffleArray[item].name +"</span></div>");
+            $('.traits').append("<div class='sele'><button class='traitsButton " + app.shuffleArray[item].type + "' id='" + item + "' tabindex='" + (item + 1) + "'><i class='fa fa-plus'></i></button><span for='" + item + "'>" + app.shuffleArray[item].name + "</span></div>");
         }
     }
 
@@ -70,8 +70,6 @@ $.getJSON("data/data.json", function(data) {
                 // console.log("selected State current key", shuffleArray[current].selected);
             }
         });
-
-
         // toggle selection
         shuffleArray[current].selected = !shuffleArray[current].selected;
         console.log("when clicked", shuffleArray[current].name + ': ' + shuffleArray[current].selected);
@@ -190,46 +188,63 @@ $.getJSON("data/data.json", function(data) {
         }
     }
 
+    $(document).bind('keyup', function(e) {
+        key = e.keyCode;
 
-$(document).bind('keyup', function(e) {
-    key = e.keyCode;
-
-    if (key == 82) {
-        location.reload(); //reload app - r key
-    } else if (key == 83) {
-        intro(); //Start App - s key
-    } else if (key == 72 && disableKey == false) {
-        // H key - Help Menu
-        // toggles sound and changes icon based on whether sound is on or off
-        openHelp = !openHelp;
-        if (openHelp == true) {
-            showHelpMenu();
-            $('.help_Button').html("Close <i class='fa fa-times'></i>");
-        } else if(key == 32 && disableKey == false){
+        if (key == 82) {
+            location.reload(); //reload app - r key
+        } else if (key == 83) {
+            intro(); //Start App - s key
+        }else if(key==9 && disableKey == false){
             e.preventDefault();
-            // space to select button
-            getIdSelection($('sele.traitsButton').attr('tabindex'));
+            // tab key
+            var tabIndex = $('.traitsButton:focus').attr('tabindex');
+            var totalSize = $('.traitsButton').size();
+            console.log(tabIndex);
+
+            if(tabIndex == undefined){
+                console.log('total', totalSize);
+              //  tabIndex = $('.traitsButton:focus').attr('tabindex', 1);
+                $('#0').focus();
+                console.log('end', tabIndex);
+            }else{
+                tabIndex = $('.traitsButton:focus').attr('tabindex');
+                totalSize = $('.traitsButton').size();
+            }
+
+        }else if (key == 72 && disableKey == false) {
+            // H key - Help Menu
+            // toggles sound and changes icon based on whether sound is on or off
+            openHelp = !openHelp;
+            if (openHelp == true) {
+                showHelpMenu();
+                $('.help_Button').html("Close <i class='fa fa-times'></i>");
+            } else if (key == 32 && disableKey == false) {
+                e.preventDefault();
+                // space to select button
+                getIdSelection($('sele.traitsButton').attr('tabindex'));
+                // if($('sele.traitsButton').attr('tabindex') == app.shuffleArray.length + parseInt(1)){
+                // }
+            } else {
+                closeHelpMenu();
+            }
         }
-        else {
-            closeHelpMenu();
-        }
+    });
+
+
+
+    function showHelpMenu() {
+        $('.help_Menu').show();
     }
-});
 
+    function closeHelpMenu() {
+        $('.help_Menu').hide();
+    }
 
-
-function showHelpMenu() {
-    $('.help_Menu').show();
-}
-
-function closeHelpMenu() {
-    $('.help_Menu').hide();
-}
-
-function intro() {
-    $('.help_Menu').hide();;
-    enabled = true;
-    disableKey = false;
-}
+    function intro() {
+        $('.help_Menu').hide();;
+        enabled = true;
+        disableKey = false;
+    }
 
 });
