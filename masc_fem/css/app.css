@@ -212,26 +212,28 @@ body {
 /* text for checkbox */
 
 label {
-    font-size: 0.8em;
+    font-size: 0.75em;
 }
 
 .sele{
   background: #484848;
   float: left;
-  width: 158px;
-  height: 40px;
-  border: 1px solid #fff;
+  width: 188px;
+  height: 25px;
+  padding: 5px 5px 10px 5px;
 }
 
 input{
 	float: left; /* prevents text from wrapping under checkbox */
 }
 
+
+
 /* non-selected class */
 
 .red,
 .traitsButton {
-
+	
 }
 
 
