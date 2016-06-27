@@ -304,3 +304,11 @@ span{
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1b1f4e', endColorstr='#ef9719', GradientType=1) !important;
     /* IE6-9 */
 }
+
+.tally{
+    width: 400px;
+    height: 600px;
+    position: relative;
+    float: left;
+    background: blue;
+}

@@ -13,7 +13,7 @@ var enabled = false; // hide intro screen
 var disableKey = true; // disable keyboard until intro screen is hidden
 var showHelp = false; // show help when clicked or key is pressed
 var openHelp = false; // whether help menu is open or closed
-var userSelect = [];  // this pushes the selected traits
+var userSelect = []; // this pushes the selected traits
 
 $.getJSON("data/data.json", function(data) {
     app = data;
@@ -52,7 +52,7 @@ $.getJSON("data/data.json", function(data) {
 
     function loadButtons() {
         for (var item = 0; item < app.shuffleArray.length; item++) {
-            $('.traits').append("<div class='sele "+ (item+1) +"'><button class='traitsButton " + app.shuffleArray[item].type + "' id='" + item + "' tabindex='" + (item + 1) + "'><i class='fa fa-plus'></i></button><span for='" + item + "'>" + app.shuffleArray[item].name + "</span></div>");
+            $('.traits').append("<div class='sele " + (item + 1) + "'><button class='traitsButton " + app.shuffleArray[item].type + "' id='" + item + "' tabindex='" + (item + 1) + "'><i class='fa fa-plus'></i></button><span for='" + item + "'>" + app.shuffleArray[item].name + "</span></div>");
         }
     }
 
@@ -73,7 +73,7 @@ $.getJSON("data/data.json", function(data) {
         });
         // toggle selection
         shuffleArray[current].selected = !shuffleArray[current].selected;
-        console.log("when clicked", shuffleArray[current].name + ': ' + shuffleArray[current].selected);
+        //  console.log("when clicked", shuffleArray[current].name + ': ' + shuffleArray[current].selected);
         // toggle classes on click
         traitToggle(shuffleArray[current].selected, Id, shuffleArray[current].type, shuffleArray[current].name);
 
@@ -83,7 +83,7 @@ $.getJSON("data/data.json", function(data) {
         } else {
             selected = true;
         }
-
+        
         return current;
     }
 
@@ -96,7 +96,13 @@ $.getJSON("data/data.json", function(data) {
             $('#' + ob).addClass('green'); // add class green
             $('#' + ob).html('<i class="fa fa-minus"></i>');
             selectedTraits(trait);
-            showTally(selection, ob, trait, name);
+
+            userSelect.push({
+                choice: name,
+                type: trait
+            });
+            console.log('userSelect', userSelect);
+
             if ($('#' + ob).hasClass('red')) {
                 $('#' + ob).removeClass('red'); // remove class red if already added
             }
@@ -141,6 +147,7 @@ $.getJSON("data/data.json", function(data) {
         if (selected == true) {
             $('.final').show();
             $('.traits').hide();
+            displayListFinal();
 
             // chart
             var myChart = new Chart(ctx, {
@@ -191,14 +198,17 @@ $.getJSON("data/data.json", function(data) {
     }
 
     /* selected array, selected item */
-    function showTally(selection, ob, trait, name){
+    function showTally(trait, name) {
         userSelect.push({
             choice: name,
             type: trait
         });
         console.log('userSelect', userSelect);
-      for(var t=0; t<userSelect.length; t++){
-            $('.tally').append('<div class="uselect '+userSelect[t].type+'">'+userSelect[t].choice+'</div>');
+    }
+
+    function displayListFinal() {
+        for (var t = 0; t < userSelect.length; t++) {
+            $('.tally').append('<div class="uselect ' + userSelect[t].type + '">' + userSelect[t].choice + '</div>');
         }
     }
 
@@ -209,26 +219,26 @@ $.getJSON("data/data.json", function(data) {
             location.reload(); //reload app - r key
         } else if (key == 83) {
             intro(); //Start App - s key
-        }else if(key==9 && disableKey == false){
+        } else if (key == 9 && disableKey == false) {
             e.preventDefault();
             // tab key
             var tabIndex = $('.traitsButton:focus').attr('tabindex');
             var totalSize = $('.traitsButton').size();
             console.log(tabIndex);
 
-            if(tabIndex == undefined){
-             //   console.log('total', totalSize);
-              //  tabIndex = $('.traitsButton:focus').attr('tabindex', 1);
+            if (tabIndex == undefined) {
+                //   console.log('total', totalSize);
+                //  tabIndex = $('.traitsButton:focus').attr('tabindex', 1);
                 $('#0').focus();
-              //  console.log('end', tabIndex);
-            }else{
+                //  console.log('end', tabIndex);
+            } else {
                 tabIndex = $('.traitsButton:focus').attr('tabindex');
-                $('.sele '+parseInt(tabIndex)).css('background-color','yellow !important');
+                $('.sele ' + parseInt(tabIndex)).css('background-color', 'yellow !important');
                 console.log('pink area', tabIndex);
                 totalSize = $('.traitsButton').size();
             }
 
-        }else if (key == 72 && disableKey == false) {
+        } else if (key == 72 && disableKey == false) {
             // H key - Help Menu
             // toggles sound and changes icon based on whether sound is on or off
             openHelp = !openHelp;
