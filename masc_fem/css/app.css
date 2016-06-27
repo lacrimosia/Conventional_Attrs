@@ -41,8 +41,8 @@ body {
 .help_Button {
     opacity: 1 !important;
     position: relative;
-    top: 0px;
-    left: 396px;
+    top: 65px;
+    left: 455px;
     width: 250px;
     height: 75px;
     /* background: #D4001D; */
@@ -65,7 +65,7 @@ body {
 
 .keyboard_Div {
     position: relative;
-    top: 108px;
+    top: 165px;
     left: 62px;
     width: 650px;
     height: 360px;
@@ -224,7 +224,7 @@ span{
 /* non-selected class */
 .red,
 .traitsButton {
-	background: #ED5901;
+	background: #5B5B5B;
 	color: #ffffff;
 	border: none;
 	cursor: pointer;
@@ -246,10 +246,21 @@ span{
 .traits {
     width: 800px;
     height: 600px;
-    background: #484848;
+   /* background: #484848; */
     position: relative;
     top: 0px;
     left: 0px;
+     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#383838+0,111111+100 */
+    background: rgb(56, 56, 56);
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg, rgba(56, 56, 56, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(56, 56, 56, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(56, 56, 56, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#383838', endColorstr='#111111', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
 }
 
 /* buttons */
@@ -306,9 +317,78 @@ span{
 }
 
 .tally{
-    width: 400px;
-    height: 600px;
+    width: 430px;
+    height: auto;
     position: relative;
     float: left;
-    background: blue;
+    padding: 10px;
+    top: -325px;
+    left: 350px;
+    z-index: 50;
+    color: #C1C1C1;
+
+}
+
+.tally p{
+    font-size: 0.75em;
+}
+
+.uselect{
+    position: relative;
+    float: left;
+    width: 40%;
+    height: auto;
+    background: #545454;
+    padding: 10px;
+    margin: 5px;
+    font-size: 0.75em;
+}
+
+.ufeminine{
+    border-left: 8px solid #EF9719;
+}
+
+.umasculine{
+    border-left: 8px solid #D4001D;
+}
+
+.final{
+    width: 800px;
+    min-height: 600px;
+    height: auto;
+    position: relative;
+    float: left;
+    top: 0px;
+    left: -195px;
+     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#383838+0,111111+100 */
+    background: rgb(56, 56, 56);
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg, rgba(56, 56, 56, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(56, 56, 56, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(56, 56, 56, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#383838', endColorstr='#111111', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.menuButtonBottom{
+    position: relative;
+    top: -49px;
+    left: 518px;
+    /*background: yellow;*/
+    width: 282px;
+}
+.finish{
+    padding: 15px;
+}
+
+.selTraitEmerge{
+    color: #ffffff;
+    width: 175px;
+    height: 20px;
+   /* background: red; */
+    float: left;
+    margin-right: 20px;
 }
