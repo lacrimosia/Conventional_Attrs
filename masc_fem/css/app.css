@@ -290,43 +290,17 @@ span{
     background: #ED5901;
 }
 
-
-/* Slide title */
-
-.tl-medium .tl-text h2.tl-headline-title,
-.tl-medium .tl-text h2.tl-headline {
-    /* color: #1B1F4E !important; */
-}
-
-
-/* slide cover */
-
-.tl-slide .tl-slide-background {
-    opacity: 0.2 !important;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1b1f4e+21,393f7d+38,aa0ce9+55,d4001d+71,ed5901+85,ef9719+98;wmst */
-    background: #1b1f4e;
-    /* Old browsers */
-    background: -moz-linear-gradient(left, #1b1f4e 21%, #393f7d 38%, #aa0ce9 55%, #d4001d 71%, #ed5901 85%, #ef9719 98%) !important;
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #1b1f4e 21%, #393f7d 38%, #aa0ce9 55%, #d4001d 71%, #ed5901 85%, #ef9719 98%) !important;
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #1b1f4e 21%, #393f7d 38%, #aa0ce9 55%, #d4001d 71%, #ed5901 85%, #ef9719 98%) !important;
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1b1f4e', endColorstr='#ef9719', GradientType=1) !important;
-    /* IE6-9 */
-}
-
 .tally{
     width: 430px;
-    height: auto;
+    height: 600px;
     position: relative;
     float: left;
-    padding: 10px;
-    top: -325px;
+    padding: 0px 10px 0px 10px;
+    top: -300px;
     left: 350px;
-    z-index: 50;
+    z-index: 1;
     color: #C1C1C1;
-
+    overflow-y: auto;
 }
 
 .tally p{

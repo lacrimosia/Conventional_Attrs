@@ -118,6 +118,7 @@ $(document).ready(function() {
                 // var findRemoveTrait = _.findIndex(userSelect, {'choice': name, 'type': trait});
 
                 var removeElement = _.reject(userSelect, { 'choice': name, 'type': trait });
+                // var sortedListSelected = _.orderBy(removeElement, ['choice', name]);
                 //  console.log('removeElement', removeElement);
                 userSelect = removeElement;
 
@@ -159,8 +160,8 @@ $(document).ready(function() {
         function finish() {
             if (selected == true) {
                 $('.final').show();
-              //  $('.traits').hide();
-              $('.sele').hide();
+                //  $('.traits').hide();
+                $('.sele').hide();
                 $('.finish').hide();
                 $('.selTraitEmerge').text('').fadeIn();
                 displayListFinal();
@@ -192,14 +193,26 @@ $(document).ready(function() {
                             yAxes: [{
                                 ticks: {
                                     beginAtZero: true
+                                },
+                                gridLines: {
+                                    display: true,
+                                    color: "rgba(255, 255, 255, 0.8)",
+                                    lineWidth: 1
+                                }
+                            }],
+                             xAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                },
+                                gridLines: {
+                                    display: true,
+                                    color: "rgba(255, 255, 255, 0.8)",
+                                    lineWidth: 1
                                 }
                             }]
                         },
                         responsive: false,
                         showTooltip: true,
-                        gridLines: {
-                            display: true
-                        },
                         title: {
                             display: true,
                             text: 'Conventional Attributes Results'
