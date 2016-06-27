@@ -245,7 +245,7 @@ $(document).ready(function() {
 
         function displayListFinal() {
             for (var t = 0; t < userSelect.length; t++) {
-                $('.theTraits').append('<div class="uselect u' + userSelect[t].type + '">' + userSelect[t].choice + '</div>');
+                $('.theTraits').append('<div class="uselect u' + userSelect[t].type + '">' + userSelect[t].choice + '<i class="fa fa-thumbs-up i'+userSelect[t].type+'" style="float: right !important;"></i></div>');
             }
         }
 

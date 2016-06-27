@@ -326,6 +326,14 @@ span{
     border-left: 8px solid #D4001D;
 }
 
+.ifeminine{
+    color: #EF9719 !important;
+}
+
+.imasculine{
+    color: #D4001D !important;
+}
+
 .final{
     width: 800px;
     min-height: 600px;
