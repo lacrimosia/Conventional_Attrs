@@ -13,6 +13,7 @@ var enabled = false; // hide intro screen
 var disableKey = true; // disable keyboard until intro screen is hidden
 var showHelp = false; // show help when clicked or key is pressed
 var openHelp = false; // whether help menu is open or closed
+var userSelect = [];  // this pushes the selected traits
 
 $.getJSON("data/data.json", function(data) {
     app = data;
@@ -74,7 +75,7 @@ $.getJSON("data/data.json", function(data) {
         shuffleArray[current].selected = !shuffleArray[current].selected;
         console.log("when clicked", shuffleArray[current].name + ': ' + shuffleArray[current].selected);
         // toggle classes on click
-        traitToggle(shuffleArray[current].selected, Id, shuffleArray[current].type);
+        traitToggle(shuffleArray[current].selected, Id, shuffleArray[current].type, shuffleArray[current].name);
 
         // checks if any traits are selected or not
         if (masculine == 0 && feminine == 0) {
@@ -86,7 +87,7 @@ $.getJSON("data/data.json", function(data) {
         return current;
     }
 
-    function traitToggle(selection, ob, trait) {
+    function traitToggle(selection, ob, trait, name) {
         // selection - the current selected key
         // True - element selected, False - element not selected
         // ob - the selected element       
@@ -95,6 +96,7 @@ $.getJSON("data/data.json", function(data) {
             $('#' + ob).addClass('green'); // add class green
             $('#' + ob).html('<i class="fa fa-minus"></i>');
             selectedTraits(trait);
+            showTally(selection, ob, trait, name);
             if ($('#' + ob).hasClass('red')) {
                 $('#' + ob).removeClass('red'); // remove class red if already added
             }
@@ -185,6 +187,18 @@ $.getJSON("data/data.json", function(data) {
         } else {
             alert("Please select a trait");
 
+        }
+    }
+
+    /* selected array, selected item */
+    function showTally(selection, ob, trait, name){
+        userSelect.push({
+            choice: name,
+            type: trait
+        });
+        console.log('userSelect', userSelect);
+      for(var t=0; t<userSelect.length; t++){
+            $('.tally').append('<div class="uselect '+userSelect[t].type+'">'+userSelect[t].choice+'</div>');
         }
     }
 
