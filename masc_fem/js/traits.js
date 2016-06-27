@@ -178,8 +178,8 @@ $(document).ready(function() {
                             label: '# of Votes',
                             data: [masculine, feminine],
                             backgroundColor: [
-                                'rgba(212, 0, 29, 1)',
-                                'rgba(239, 151, 25, 1)'
+                                'rgba(212, 0, 29, 0.9)',
+                                'rgba(239, 151, 25, 0.9)'
                             ],
                             borderColor: [
                                 'rgba(212, 0, 29, 1)',
@@ -256,7 +256,9 @@ $(document).ready(function() {
                 location.reload(); //reload app - r key
             } else if (key == 83) {
                 intro(); //Start App - s key
-            } else if (key == 9 && disableKey == false) {
+            }else if (key == 70 && disableKey == false) {
+                finish(); //FINISH APP - f key
+            }else if (key == 9 && disableKey == false) {
                 e.preventDefault();
                 // tab key
                 var tabIndex = $('.traitsButton:focus').attr('tabindex');
@@ -271,7 +273,7 @@ $(document).ready(function() {
                 } else {
                     tabIndex = $('.traitsButton:focus').attr('tabindex');
                     $('.sele ' + parseInt(tabIndex)).css('background-color', 'yellow !important');
-                    console.log('pink area', tabIndex);
+                  //  console.log('pink area', tabIndex);
                     totalSize = $('.traitsButton').size();
                 }
 
