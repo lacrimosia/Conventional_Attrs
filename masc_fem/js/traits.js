@@ -200,7 +200,7 @@ $(document).ready(function() {
                                     lineWidth: 1
                                 }
                             }],
-                             xAxes: [{
+                            xAxes: [{
                                 ticks: {
                                     beginAtZero: true
                                 },
@@ -256,9 +256,9 @@ $(document).ready(function() {
                 location.reload(); //reload app - r key
             } else if (key == 83) {
                 intro(); //Start App - s key
-            }else if (key == 70 && disableKey == false) {
+            } else if (key == 70 && disableKey == false) {
                 finish(); //FINISH APP - f key
-            }else if (key == 9 && disableKey == false) {
+            } else if (key == 9 && disableKey == false) {
                 e.preventDefault();
                 // tab key
                 var tabIndex = $('.traitsButton:focus').attr('tabindex');
@@ -273,7 +273,7 @@ $(document).ready(function() {
                 } else {
                     tabIndex = $('.traitsButton:focus').attr('tabindex');
                     $('.sele ' + parseInt(tabIndex)).css('background-color', 'yellow !important');
-                  //  console.log('pink area', tabIndex);
+                    //  console.log('pink area', tabIndex);
                     totalSize = $('.traitsButton').size();
                 }
 
