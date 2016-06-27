@@ -83,7 +83,7 @@ $.getJSON("data/data.json", function(data) {
         } else {
             selected = true;
         }
-        
+
         return current;
     }
 
@@ -97,6 +97,7 @@ $.getJSON("data/data.json", function(data) {
             $('#' + ob).html('<i class="fa fa-minus"></i>');
             selectedTraits(trait);
 
+            // push user selected traits to show later
             userSelect.push({
                 choice: name,
                 type: trait
@@ -111,9 +112,19 @@ $.getJSON("data/data.json", function(data) {
             $('#' + ob).addClass('red'); // add class red
             $('#' + ob).html('<i class="fa fa-plus"></i>');
             unselectedTraits(trait);
+            // find unselected trait and remove from list
+            // var findRemoveTrait = _.findIndex(userSelect, {'choice': name, 'type': trait});
+
+            var removeElement = _.reject(userSelect, { 'choice': name, 'type': trait });
+            //  console.log('removeElement', removeElement);
+            userSelect = removeElement;
+
+            console.log('removed userSelect', userSelect);
+
             if ($('#' + ob).hasClass('green')) {
                 $('#' + ob).removeClass('green'); // remove class green if already added
             }
+            return userSelect;
         }
     }
 
@@ -208,7 +219,7 @@ $.getJSON("data/data.json", function(data) {
 
     function displayListFinal() {
         for (var t = 0; t < userSelect.length; t++) {
-            $('.tally').append('<div class="uselect ' + userSelect[t].type + '">' + userSelect[t].choice + '</div>');
+            $('.theTraits').append('<div class="uselect ' + userSelect[t].type + '">' + userSelect[t].choice + '</div>');
         }
     }
 
