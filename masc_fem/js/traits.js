@@ -159,7 +159,8 @@ $(document).ready(function() {
         function finish() {
             if (selected == true) {
                 $('.final').show();
-                $('.traits').hide();
+              //  $('.traits').hide();
+              $('.sele').hide();
                 $('.finish').hide();
                 $('.selTraitEmerge').text('').fadeIn();
                 displayListFinal();
