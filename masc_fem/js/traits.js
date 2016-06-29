@@ -165,13 +165,13 @@ $(document).ready(function() {
                 $('.finish').hide();
                 $('.selTraitEmerge').text('').fadeIn();
                 displayListFinal();
-
+                displayResults();
                 Chart.defaults.global.defaultFontColor = '#C1C1C1'; // font color 
                 Chart.defaults.global.title.fontSize = 14; // chart font size
 
                 // chart
                 var myChart = new Chart(ctx, {
-                    type: 'doughnut',
+                    type: 'pie',
                     data: {
                         labels: ["Masculine", "Feminine"],
                         datasets: [{
@@ -196,7 +196,7 @@ $(document).ready(function() {
                                 },
                                 gridLines: {
                                     display: true,
-                                    color: "rgba(255, 255, 255, 0.8)",
+                                    color: "rgba(255, 255, 255, 0.4)",
                                     lineWidth: 1
                                 }
                             }],
@@ -206,7 +206,7 @@ $(document).ready(function() {
                                 },
                                 gridLines: {
                                     display: true,
-                                    color: "rgba(255, 255, 255, 0.8)",
+                                    color: "rgba(255, 255, 255, 0.4)",
                                     lineWidth: 1
                                 }
                             }]
@@ -243,9 +243,37 @@ $(document).ready(function() {
             console.log('userSelect', userSelect);
         }
 
+        function displayResults() {
+            var total = parseInt(masculine) + parseInt(feminine);
+            var m = Math.round((masculine/total)*100);
+            var f = Math.round((feminine/total)*100);
+            $('.percentage').html("<div class='percentM'>Masculine Traits<br/><span>"+m+"%</span></div><div class='percentF'>Feminine Traits <br/><span>"+f+"%</span></div>");
+
+            if (masculine > feminine) {
+                // masculine text
+                $('.tally h3').text("Your Results: "+app.responses.masculine.heading);
+                $('.tally p').text(app.responses.masculine.statement);
+                $('.tally h3').css('color','#D4001D');
+                
+            } else if (feminine > masculine) {
+                // feminine
+                $('.tally h3').text("Your Results: "+app.responses.feminine.heading);
+                $('.tally p').text(app.responses.feminine.statement);
+                $('.tally h3').css('color','#EF9719');
+            } else if (feminine == masculine) {
+                // Both 
+                $('.tally h3').text("Your Results: "+app.responses.both.heading);
+                $('.tally p').text(app.responses.both.statement);
+            } else {
+                // Special
+                $('.tally h3').text("Your Selected Traits: You are special");
+            }
+        }
+
         function displayListFinal() {
+            $('.theTraits').html("<h4>Your Selected Traits</h4>");
             for (var t = 0; t < userSelect.length; t++) {
-                $('.theTraits').append('<div class="uselect u' + userSelect[t].type + '">' + userSelect[t].choice + '<i class="fa fa-thumbs-up i'+userSelect[t].type+'" style="float: right !important;"></i></div>');
+                $('.theTraits').append('<div class="uselect u' + userSelect[t].type + '">' + userSelect[t].choice + '<i class="fa fa-thumbs-up i' + userSelect[t].type + '" style="float: right !important;"></i></div>');
             }
         }
 

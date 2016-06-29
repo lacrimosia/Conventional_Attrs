@@ -1,5 +1,19 @@
 {
 	"title": "Conventional Attributes",
+	"responses":{
+		"masculine": {
+			"heading": "Masculine-Oriented",
+			"statement":"The traits you identify with are mostly Masculine. The traits in RED are associated with masculinity in society. These particular traits are heavily valued in society."
+		},
+		"feminine": {
+			"heading": "Feminine-Oriented",
+			"statement":"The traits you identify with are mostly Feminine. The traits in ORANGE are associated with femininity in society. These particular traits are viewed negatively in society while being a man is view positively."
+		},
+		"both": {
+			"heading": "Masculine and Feminine",
+			"statement":"The traits you identify with are both Masculine and Feminine. The traits in ORANGE are Feminine and the traits in RED are Masculine. They represent how society perceives various characteristics. Masculine traits are viewed as valuabled while feminine traits are viewed negatively."
+		}
+	},
 	"traits":[
 		{
 			"name": "Dominance, authority, power; being on top",
@@ -207,11 +221,6 @@
 			"selected": false
 		},
 		{
-			"name": "Dependent",
-			"type": "feminine",
-			"selected": false
-		},
-		{
 			"name": "Unintelligent and Incapable",
 			"type": "feminine",
 			"selected": false
@@ -238,11 +247,6 @@
 		},
 		{
 			"name": "Content",
-			"type": "feminine",
-			"selected": false
-		},
-		{
-			"name": "Passive",
 			"type": "feminine",
 			"selected": false
 		},

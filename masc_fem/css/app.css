@@ -363,3 +363,39 @@ span{
     float: left;
     margin-right: 20px;
 }
+
+.theTraits h4{
+    clear: both;
+}
+
+.percentage{
+    width: 100%;
+    text-align: center;
+}
+
+.percentM{
+    position: relative;
+    width: 45%;
+    height: auto;
+    padding: 10px;
+    background: #C3041E;
+    color: #ffffff;
+    float: left;
+    margin-bottom:10px;
+}
+
+.percentF{
+    position: relative;
+    width: 45%;
+    height: auto;
+    padding: 10px;
+    background: #EF9719;
+    color: #ffffff;
+    float: left;
+    margin-bottom:10px;
+}
+ .percentM span, .percentF span{
+    font-size: 2.4em;
+    font-weight: 800;
+ }
+
