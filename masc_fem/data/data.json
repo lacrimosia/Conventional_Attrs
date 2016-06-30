@@ -16,67 +16,7 @@
 	},
 	"traits":[
 		{
-			"name": "Dominance, authority, power; being on top",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Hard, not soft",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Phallic; penetrating, not penetrated",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Aggressiveness",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Explosive, uncontrollable (\"boys will be boys\")",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Irresistible to women",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Being Active",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Enjoyment of physical activity (sports, etc.)",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Enjoyment of the chase, etc.",
-			"type": "masculine",
-			"selected": false
-		},
-		{
 			"name": "Go-getting",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Enjoyment of violence",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Lust-driven; \"brains in crotch\"",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Polygamous",
 			"type": "masculine",
 			"selected": false
 		},
@@ -87,11 +27,6 @@
 		},
 		{
 			"name": "Independent",
-			"type": "masculine",
-			"selected": false
-		},
-		{
-			"name": "Intelligent and competent",
 			"type": "masculine",
 			"selected": false
 		},
@@ -156,16 +91,6 @@
 			"selected": false
 		},
 		{
-			"name": "Passive",
-			"type": "feminine",
-			"selected": false
-		},
-		{
-			"name": "Sensitive",
-			"type": "feminine",
-			"selected": false
-		},
-		{
 			"name": "Quiet",
 			"type": "feminine",
 			"selected": false
@@ -201,11 +126,6 @@
 			"selected": false
 		},
 		{
-			"name": "Soft",
-			"type": "feminine",
-			"selected": false
-		},
-		{
 			"name": "Sexually submissive",
 			"type": "feminine",
 			"selected": false
@@ -217,16 +137,6 @@
 		},
 		{
 			"name": "Submissive",
-			"type": "feminine",
-			"selected": false
-		},
-		{
-			"name": "Unintelligent and Incapable",
-			"type": "feminine",
-			"selected": false
-		},
-		{
-			"name": "Emotional",
 			"type": "feminine",
 			"selected": false
 		},
@@ -252,16 +162,6 @@
 		},
 		{
 			"name": "Cooperative",
-			"type": "feminine",
-			"selected": false
-		},
-		{
-			"name": "Sensitive",
-			"type": "feminine",
-			"selected": false
-		},
-		{
-			"name": "Sex object",
 			"type": "feminine",
 			"selected": false
 		},
