@@ -169,8 +169,106 @@
 			"name": "Attractive because of physical appearance",
 			"type": "feminine",
 			"selected": false
+		},
+		{
+			"name": "Good listener",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Hesitant",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Intelligent",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Competent",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Aggressive",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Unintelligent",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Explosive",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Self-less",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Selfish",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Stable",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Rational",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Irrational",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Frivolous",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Bad listener",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Short-tempered",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Self-denying",
+			"type": "feminine",
+			"selected": false
+		},
+		{
+			"name": "Chivalrous",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Violent",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Powerful",
+			"type": "masculine",
+			"selected": false
+		},
+		{
+			"name": "Invinvible",
+			"type": "masculine",
+			"selected": false
 		}
-
-
 	]
 }
