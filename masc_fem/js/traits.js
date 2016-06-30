@@ -171,11 +171,11 @@ $(document).ready(function() {
 
                 // chart
                 var myChart = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'doughnut',
                     data: {
                         labels: ["Masculine", "Feminine"],
                         datasets: [{
-                            label: '- Gender Traits',
+                            label: 'Gender Traits',
                             data: [masculine, feminine],
                             backgroundColor: [
                                 'rgba(212, 0, 29, 0.9)',
@@ -215,7 +215,7 @@ $(document).ready(function() {
                         showTooltip: true,
                         title: {
                             display: true,
-                            text: 'Conventional Attributes Results'
+                            text: 'Conventional Gender Attributes'
                         },
                         hover: {
                             mode: 'label'
