@@ -171,11 +171,11 @@ $(document).ready(function() {
 
                 // chart
                 var myChart = new Chart(ctx, {
-                    type: 'pie',
+                    type: 'bar',
                     data: {
                         labels: ["Masculine", "Feminine"],
                         datasets: [{
-                            label: '# of Votes',
+                            label: '- Gender Traits',
                             data: [masculine, feminine],
                             backgroundColor: [
                                 'rgba(212, 0, 29, 0.9)',
@@ -245,29 +245,49 @@ $(document).ready(function() {
 
         function displayResults() {
             var total = parseInt(masculine) + parseInt(feminine);
-            var m = Math.round((masculine/total)*100);
-            var f = Math.round((feminine/total)*100);
-            $('.percentage').html("<div class='percentM'>Masculine Traits<br/><span>"+m+"%</span></div><div class='percentF'>Feminine Traits <br/><span>"+f+"%</span></div>");
+            var m = Math.round((masculine / total) * 100);
+            var f = Math.round((feminine / total) * 100);
+
+            
+
+            $('.percentage').html("<div class='percentM'>Masculine Traits<br/><span>" + m + "%</span></div><div class='percentF'>Feminine Traits <br/><span>" + f + "%</span></div>");
 
             if (masculine > feminine) {
                 // masculine text
-                $('.tally h3').text("Your Results: "+app.responses.masculine.heading);
+                $('.tally h3').text("Your Results: " + app.responses.masculine.heading);
                 $('.tally p').text(app.responses.masculine.statement);
-                $('.tally h3').css('color','#D4001D');
-                
+                $('.tally h3').css('color', '#D4001D');
+
             } else if (feminine > masculine) {
                 // feminine
-                $('.tally h3').text("Your Results: "+app.responses.feminine.heading);
+                $('.tally h3').text("Your Results: " + app.responses.feminine.heading);
                 $('.tally p').text(app.responses.feminine.statement);
-                $('.tally h3').css('color','#EF9719');
+                $('.tally h3').css('color', '#EF9719');
             } else if (feminine == masculine) {
                 // Both 
-                $('.tally h3').text("Your Results: "+app.responses.both.heading);
+                $('.tally h3').text("Your Results: " + app.responses.both.heading);
                 $('.tally p').text(app.responses.both.statement);
             } else {
                 // Special
                 $('.tally h3').text("Your Selected Traits: You are special");
             }
+
+            // percent animation
+            percentAnimation('.percentM span', 0, m, 800, 'easeInCubic');
+            percentAnimation('.percentF span', 0, f, 800, 'easeInCubic');
+            
+        }
+
+        function percentAnimation(jOb, startVal, endVal, duration, easing){
+            $(jOb).prop('Counter', startVal).animate({
+                Counter: endVal
+            }, {
+                duration: duration,
+                easing: easing,
+                step: function(now) {
+                    $(this).text(Math.round(now)+"%");
+                }
+            });
         }
 
         function displayListFinal() {
