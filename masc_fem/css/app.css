@@ -11,8 +11,10 @@ body {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 800px;
-    height: 701px;
+    /*width: 800px;*/
+    width: 70%;
+    /*height: 701px;*/
+    height: 91%;
     /* background: rgba(0, 0, 0, 0.6); */
     z-index: 100000;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1b1f4e+21,393f7d+38,aa0ce9+55,d4001d+71,ed5901+85,ef9719+98&0.46+0,0.5+100;wmst2 */
@@ -41,9 +43,9 @@ body {
 .help_Button {
     opacity: 1 !important;
     position: relative;
-    top: -70px;
-    left: 388px;
-    width: 250px;
+    /*top: -70px;
+    left: 388px;*/
+    width: 100%;
     height: 75px;
     /* background: #D4001D; */
     border: none;
@@ -65,10 +67,13 @@ body {
 
 .keyboard_Div {
     position: relative;
-    top: 165px;
-    left: 62px;
-    width: 650px;
-    height: 360px;
+    /*top: 165px;
+    left: 62px;*/
+    margin: 100px auto;
+    /*width: 650px; */
+    width: 55%;
+    /*height: 360px;*/
+    height: auto;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#383838+0,111111+100 */
     background: rgb(56, 56, 56);
     /* Old browsers */
@@ -126,6 +131,10 @@ body {
     background: #636363;
 }
 
+#graph{
+    float: left;
+}
+
 .keyButtons {
     background: #111111;
     border-radius: 6px;
@@ -163,7 +172,8 @@ body {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1b1f4e', endColorstr='#ef9719', GradientType=1);
     /* IE6-9 */
-    width: 780px;
+    /*width: 780px;*/
+    width: 69%;
     height: 50px;
     padding: 10px;
     position: relative;
@@ -187,7 +197,8 @@ body {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#383838', endColorstr='#111111', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
-    width: 800px;
+    /*width: 800px;*/
+    width: 70%;
     height: 31px;
     font-family: sans-serif;
     color: #f1f1f1;
@@ -207,9 +218,8 @@ body {
 
 .sele{
   float: left;
-  width: 188px;
-  height: 25px;
-  padding: 5px 5px 11px 5px;
+  width: 10%;
+  padding: 10;
 }
 
 span{
@@ -230,7 +240,7 @@ span{
 	cursor: pointer;
 	float: left;
 	margin-right: 5px;
-	padding: 7px;
+	padding: 20px;
 	transition: background linear .2s;
 	outline: none;
 }
@@ -244,12 +254,17 @@ span{
 
 /* checkboxs main div */
 .traits {
-    width: 800px;
-    height: 600px;
+   /* width: 800px;*/
+   width: 70%;
+    min-height: 600px;
+    height: 80%;
    /* background: #484848; */
     position: relative;
-    top: 0px;
-    left: 0px;
+   /* top: 0px;
+    left: 0px;*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#383838+0,111111+100 */
     background: rgb(56, 56, 56);
     /* Old browsers */
@@ -261,6 +276,13 @@ span{
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#383838', endColorstr='#111111', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
+}
+
+@media screen and (max-width: 1024px) {
+     .traits {
+        display: block;
+        float: left;
+     }
 }
 
 /* buttons */
@@ -291,13 +313,15 @@ span{
 }
 
 .tally{
-    width: 430px;
-    height: 600px;
+    /*width: 430px; 
+    height: 600px;*/
+    width: 48%;
+    height: auto;
     position: relative;
     float: left;
     padding: 0px 10px 0px 10px;
-    top: -300px;
-    left: 350px;
+   /* top: -300px;
+    left: 350px;*/
     z-index: 1;
     color: #C1C1C1;
     overflow-y: auto;
@@ -335,7 +359,8 @@ span{
 }
 
 .final{
-    width: 800px;
+    /*width: 800px;*/
+    width: 100%;
     min-height: 600px;
     height: auto;
     position: relative;
@@ -346,10 +371,10 @@ span{
 
 .menuButtonBottom{
     position: relative;
-    top: -49px;
-    left: 518px;
+   /* top: -49px;
+    left: 518px;*/
     /*background: yellow;*/
-    width: 282px;
+    float: right;
 }
 .finish{
     padding: 15px;
