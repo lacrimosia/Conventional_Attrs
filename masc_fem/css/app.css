@@ -219,7 +219,7 @@ body {
 .sele{
   float: left;
   width: 10%;
-  padding: 10;
+  padding-bottom: 10px;
 }
 
 span{
@@ -260,11 +260,12 @@ span{
     height: 80%;
    /* background: #484848; */
     position: relative;
+    float: left;
    /* top: 0px;
-    left: 0px;*/
+    left: 0px;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;*/
      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#383838+0,111111+100 */
     background: rgb(56, 56, 56);
     /* Old browsers */
@@ -280,8 +281,11 @@ span{
 
 @media screen and (max-width: 1024px) {
      .traits {
-        display: block;
         float: left;
+     }
+     .sele{
+        width:50%;
+        padding-bottom: 10px;
      }
 }
 
